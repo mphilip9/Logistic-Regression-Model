@@ -102,6 +102,8 @@ plot(allEffects(hyp.out))
 ##      (everwrk) using age (age_p) and marital status (r_maritl).
 ##   2. Predict the probability of working for each level of marital
 ##      status.
+
+#1
 str(NH11$everwrk)
 levels(NH11$everwrk)#Has 5 levels, needs to be reduced to 2
 NH11$everwrk <- factor(NH11$everwrk, levels=c("2 No", "1 Yes"))
@@ -114,6 +116,7 @@ everwrk.easy
 
 #2
 everwrk.mar <- glm(everwrk ~ r_maritl, data = NH11, family = "binomial")
+summary(allEffects(everwrk.mar))
 plot(allEffects(everwrk.mar))
 ##   Note that the data is not perfectly clean and ready to be modeled. You
 ##   will need to clean up at least some of the variables before fitting
